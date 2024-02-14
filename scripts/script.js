@@ -2,10 +2,10 @@ $(document).ready(function(){
   
   console.log("Top: " +  $("img").position().top + " Left: " + $("img").position().left);
 
-  // #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px; }
-  // $( "#draggable3" ).draggable({ containment: "#containment-wrapper", scroll: false })
-  // $( "#draggable" ).draggable({ axis: "y" });
-  $("img").draggable({
+  
+  // 
+  //$( "#draggable" ).draggable({ axis: "y" });
+   $("img").draggable({
     stop: function(){
       console.log('stopping?');
       let dogeLeft = $("img").position().left;
@@ -15,20 +15,23 @@ $(document).ready(function(){
         
         $("p").text("You WIN! Congrats!");
         
-        $("img").attr("src", "https://picsum.photos/200/300");
+        $("img").attr("src", "https://i.imgflip.com/4gson0.jpg");
       }
       else{
         console.log("we not above 300");
       }
     }
   });
-  
-  function myFunction(element, color){
-    element.style.color = color;
-  }
 
-  function displayText() {
+
+  //$( "#draggable3" ).draggable({ containment: "#img", scroll: false });
+
+  $(function(){
+    $( "img" ).draggable({ containment: "#containment-wrapper", scroll: false });
+  });
+  $("#DoIt").click(function(){
         // Get the text container element
+        console.log('hit button')
         var textContainer = document.getElementById('text-container');
         
         // Create a new text node
@@ -39,5 +42,5 @@ $(document).ready(function(){
         
         // Append the new text node to the container
         textContainer.appendChild(newText);
-    }
+    });
 });
